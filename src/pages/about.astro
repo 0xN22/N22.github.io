@@ -30,17 +30,10 @@ const year = new Date().getFullYear();
           </svg>
         </div>
         <p class="sub">
-          CS student graduating 2026. Majoring in Robotics.<br/>
-          My crime is that of curiosity.
+          Computer Science student
+          expected 2026.<br/>
         </p>
-        <div class="hero-btns">
-          <a class="hbtn p" href={thmUrl} target="_blank" rel="noopener">
-            <span class="br2">[</span> TryHackMe ({thmUser}) <span class="br2">]</span>
-          </a>
-          <a class="hbtn" href={htbUrl} target="_blank" rel="noopener">
-            <span class="br2">[</span> Hack The Box ({htbUser}) <span class="br2">]</span>
-          </a>
-        </div>
+        <p class="hero-note">Cybersecurity student | builder | bug-hunter</p>
       </div>
     </section>
 
@@ -48,13 +41,11 @@ const year = new Date().getFullYear();
       <div class="sec-label">// activity</div>
       <div class="cards">
         <a class="card thm" href={thmUrl} target="_blank" rel="noopener">
-          <span class="pill thm-pill">TryHackMe</span>
           <div class="badge">
             <div set:html={badgeIframe}></div>
           </div>
         </a>
         <a class="card htb" href={htbUrl} target="_blank" rel="noopener">
-          <span class="pill htb-pill">Hack The Box</span>
           <div class="htb-mock">
             <img
               src="/htb-logo.png"
@@ -123,8 +114,7 @@ const year = new Date().getFullYear();
           <h3>Defensive</h3>
           <div class="sk-items">
             <span class="sk-item">HTB Sherlocks</span>
-            <span class="sk-item">LetsDefend</span>
-            <span class="sk-item">Log analysis & triage</span>
+            <span class="sk-item">Log analysis </span>
             <span class="sk-item">Malware analysis</span>
           </div>
           <p class="sk-note">Blue team awareness makes you a better attacker.</p>
@@ -134,34 +124,18 @@ const year = new Date().getFullYear();
           <h3>For Fun</h3>
           <div class="sk-items">
             <span class="sk-item">CTF / Hacking competitions</span>
-            <span class="sk-item">Coding competitions</span>
-            <span class="sk-item">PowerShell scripting</span>
-            <span class="sk-item">Replicating CVEs</span>
-            <span class="sk-item">GeoGuessr — top 1%</span>
-            <span class="sk-item">Chess</span>
-            <span class="sk-item">Philosophy</span>
-            <span class="sk-item">Research & deep dives</span>
+            <span class="sk-item">Working on personal projects e.g. small games, personal use case applications, efficient programs</span>
+            <span class="sk-item">Scripting (often with PowerShell) </span>
+            <span class="sk-item">Testing/researching CVEs</span>
+            <span class="sk-item">Bug bounty programs</span>
+
           </div>
-          <p class="sk-note">If I'm not studying, I'm probably doing one of these.</p>
+          
         </article>
 
       </div>
 
-      <div class="focus">
-        <div class="focus-row">
-          <span class="ftag cur">focused</span>
-          binary analysis 
-        </div>
-        <div class="focus-row">
-          <span class="ftag dev">developing</span>
-          iOS application · CTFtime integration · OSINT toolkit · project showcase
-        </div>
-        <div class="focus-row">
-          <span class="ftag proj">projects</span>
-            iOS app · OSINT Chrome extension · ESP32 wireless analyzer
-        </div>
-      </div>
-    </section>
+
 
   </main>
 
@@ -184,47 +158,84 @@ const year = new Date().getFullYear();
 
   .topnav {
     display: flex;
-    gap: .6rem;
+    gap: .8rem;
     justify-content: center;
-    padding: .6rem;
+    padding: .9rem;
     margin-bottom: 2rem;
-    border: 1px solid rgba(110,75,255,0.15);
-    border-radius: 6px;
+    border-radius: 14px;
     background: rgba(110,75,255,0.03);
+    border: none;
   }
   .navlink {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-family: 'Share Tech Mono', monospace;
-    font-size: .72rem;
-    letter-spacing: .1em;
+    font-size: .78rem;
+    letter-spacing: .18em;
     text-decoration: none;
-    color: rgba(150,140,200,0.45);
-    padding: .28rem .7rem;
-    border-radius: 3px;
-    transition: all .15s;
+    color: rgba(210,205,240,.85);
+    padding: .65rem 1rem;
+    border-radius: 999px;
+    overflow: hidden;
+    transition: transform .2s ease, color .2s ease;
+    text-shadow: 2px 2px 8px rgba(0,0,0,.3);
   }
-  .navlink:hover { color: #fff; background: rgba(110,75,255,0.1); }
+  .navlink:before,
+  .navlink:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 110%;
+    height: 110%;
+    border-radius: 999px;
+    z-index: -2;
+    background-size: 400% 400%;
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  }
+  .navlink:before {
+    filter: blur(7px);
+    transition: all .25s ease;
+    animation: pulse 10s infinite ease;
+  }
+  .navlink:after {
+    filter: blur(0.3px);
+  }
+  .navlink:hover:before {
+    width: 120%;
+    height: 120%;
+  }
+  .navlink:hover {
+    transform: translateY(-1px);
+  }
   .navlink.active {
     color: #fff;
-    background: rgba(110,75,255,0.15);
-    border: 1px solid rgba(110,75,255,0.3);
+    background: rgba(14, 9, 32, 0.92);
+    box-shadow: 0 0 24px rgba(0,0,0,.25);
+  }
+  .navlink.active:before,
+  .navlink.active:after {
+    background: linear-gradient(60deg, #7c4dff, #5e7bff, #7c4dff);
   }
 
   .hero {
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(110,75,255,0.22);
     border-radius: 14px;
     padding: clamp(2rem,6vw,3.5rem) clamp(1.5rem,5vw,3rem);
     background: linear-gradient(160deg, rgba(14,9,32,.97), rgba(5,4,16,.99));
     text-align: center;
     margin-bottom: 2.5rem;
-    box-shadow: 0 0 0 1px rgba(110,75,255,0.06), 0 24px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.03);
+    box-shadow: 0 24px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,.03);
   }
   .c { position: absolute; width: 16px; height: 16px; }
-  .tl { top:0; left:0;    border-top:2px solid rgba(124,77,255,.5); border-left:2px solid rgba(124,77,255,.5); }
-  .tr { top:0; right:0;   border-top:2px solid rgba(124,77,255,.5); border-right:2px solid rgba(124,77,255,.5); }
-  .bl { bottom:0; left:0;  border-bottom:2px solid rgba(124,77,255,.5); border-left:2px solid rgba(124,77,255,.5); }
-  .br { bottom:0; right:0; border-bottom:2px solid rgba(124,77,255,.5); border-right:2px solid rgba(124,77,255,.5); }
+  .tl { top:0; left:0; }
+  .tr { top:0; right:0; }
+  .bl { bottom:0; left:0; }
+  .br { bottom:0; right:0; }
   .hero-aura {
     position: absolute; inset: -50% -30% auto; height: 80%;
     background: radial-gradient(55% 55% at 50% 45%, rgba(110,75,255,.3) 0%, rgba(94,123,255,.08) 45%, transparent 70%);
@@ -254,23 +265,66 @@ const year = new Date().getFullYear();
     font-size: clamp(.88rem,2vw,.98rem);
     color: rgba(200,195,230,.6);
     line-height: 1.75; max-width: 52ch;
-    margin: 0 auto 1.8rem;
+    margin: 0 auto 1.2rem;
   }
   .sub strong { color: rgba(160,140,255,.9); font-weight: 400; }
+  .hero-note {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .8rem;
+    letter-spacing: .15em;
+    color: rgba(180,165,255,.7);
+    margin: 0 auto 1.8rem;
+    max-width: 52ch;
+  }
   .hero-btns { display: flex; gap: .75rem; flex-wrap: wrap; justify-content: center; }
   .hbtn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+    height: 55px;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: transparent;
     font-family: 'Share Tech Mono', monospace;
-    font-size: .78rem; letter-spacing: .05em;
-    display: inline-flex; align-items: center; gap: .3rem;
-    padding: .58rem 1.1rem;
-    border: 1px solid rgba(110,75,255,.28); border-radius: 4px;
-    text-decoration: none; color: rgba(210,205,240,.8);
-    background: rgba(110,75,255,.05); transition: all .15s;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 50px;
+    background: linear-gradient(90deg, #1e39a5, #c50e07);
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    background-size: 300% 300%;
+    -webkit-text-fill-color: transparent;
+    overflow: hidden;
+    transition: transform .3s ease, border-color .3s ease;
   }
-  .br2 { color: rgba(124,77,255,.4); }
-  .hbtn:hover { background: rgba(110,75,255,.12); border-color: rgba(110,75,255,.5); color: #fff; transform: translateY(-2px); }
-  .hbtn.p { border-color: transparent; background: linear-gradient(135deg,#7c4dff,#5e7bff); color: #fff; box-shadow: 0 4px 20px rgba(94,123,255,.25); }
-  .hbtn.p:hover { filter: brightness(1.12); border-color: transparent; }
+  .hbtn:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,.18);
+  }
+  .hbtn .hbtn-inner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 1.25rem;
+    background: rgba(14, 9, 32, 0.95);
+    border-radius: 48px;
+    transition: background .35s ease;
+    color: inherit;
+  }
+  .hbtn:hover .hbtn-inner {
+    background: rgba(14, 9, 32, 0.82);
+  }
+  .hbtn .br2 { color: rgba(255,255,255,.8); }
+  .hbtn.p {
+    color: transparent;
+  }
 
   .sec { margin-bottom: 2.5rem; }
   .sec-label {
@@ -291,7 +345,7 @@ const year = new Date().getFullYear();
   .cards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); }
   .card {
     text-decoration: none; color: inherit;
-    border: 1px solid rgba(110,75,255,.15); border-radius: 10px;
+    border-radius: 10px;
     padding: 1.2rem; background: rgba(10,6,26,.7);
     display: flex; flex-direction: column; align-items: center;
     min-height: 180px; position: relative; overflow: hidden;
@@ -300,13 +354,23 @@ const year = new Date().getFullYear();
   .card.thm:hover { border-color: rgba(124,77,255,.45); box-shadow: 0 0 28px rgba(124,77,255,.1); transform: translateY(-3px); }
   .card.htb:hover { border-color: rgba(0,229,255,.35); box-shadow: 0 0 28px rgba(0,229,255,.08); transform: translateY(-3px); }
   .pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-family: 'Share Tech Mono', monospace;
-    font-size: .62rem; letter-spacing: .12em; text-transform: uppercase;
-    padding: .18rem .55rem; border-radius: 2px; margin-bottom: .9rem;
-    border: 1px solid; font-weight: 700;
+    font-size: .68rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    padding: .22rem .65rem;
+    border-radius: 999px;
+    margin-bottom: .9rem;
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.03);
+    color: rgba(210,205,240,.75);
+    font-weight: 700;
   }
-  .thm-pill { background: rgba(124,77,255,.12); color: rgba(160,140,255,.85); border-color: rgba(124,77,255,.28); }
-  .htb-pill { background: rgba(0,229,255,.07); color: rgba(0,229,255,.75); border-color: rgba(0,229,255,.2); }
+  .thm-pill { background: rgba(124,77,255,.08); color: rgba(160,140,255,.9); border-color: rgba(124,77,255,.18); }
+  .htb-pill { background: rgba(0,229,255,.05); color: rgba(0,229,255,.82); border-color: rgba(0,229,255,.18); }
   .badge {
     position: relative; width: 100%; max-width: 480px;
     aspect-ratio: 520/180; border-radius: 8px; overflow: hidden;
@@ -332,7 +396,7 @@ const year = new Date().getFullYear();
     .sk.mid { grid-column: 2; }
   }
   .sk {
-    border: 1px solid rgba(110,75,255,.13); border-radius: 10px;
+    border-radius: 10px;
     padding: 1.1rem 1.15rem 1.2rem; background: rgba(10,6,26,.7);
     transition: all .18s; position: relative; overflow: hidden;
   }
@@ -354,16 +418,43 @@ const year = new Date().getFullYear();
   .sk-note { font-family: 'DM Sans', sans-serif; font-size: .85rem; color: rgba(200,210,220,0.6); line-height: 1.6; }
   .sk-lede { font-family: 'DM Sans', sans-serif; font-size: .85rem; color: rgba(160,140,255,.7); line-height: 1.6; margin-bottom: .35rem; }
 
-  .focus { display: flex; flex-direction: column; gap: .45rem; margin-top: 1.4rem; }
-  .focus-row {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: .72rem; color: rgba(150,140,200,.4);
-    display: flex; align-items: center; gap: .55rem;
+  .focus-list {
+    display: grid;
+    gap: .9rem;
+    margin-top: 1.4rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
-  .ftag { font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; padding: .15rem .48rem; border-radius: 2px; border: 1px solid; }
-  .ftag.cur { background: rgba(124,77,255,.1); color: rgba(160,140,255,.75); border-color: rgba(124,77,255,.22); }
-  .ftag.dev { background: rgba(0,229,255,.05); color: rgba(0,229,255,.55); border-color: rgba(0,229,255,.16); }
-  .ftag.proj { background: rgba(74,222,128,.05); color: rgba(74,222,128,.6); border-color: rgba(74,222,128,.18); }
+  .focus-card {
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+    background: rgba(11,8,26,.88);
+    box-shadow: 0 12px 30px rgba(0,0,0,.15), inset 0 1px 0 rgba(255,255,255,.04);
+    min-height: 108px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .focus-card:nth-child(2) {
+    border-left-color: rgba(0,229,255,.55);
+  }
+  .focus-card:nth-child(3) {
+    border-left-color: rgba(74,222,128,.55);
+  }
+  .focus-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .68rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(180,165,255,.85);
+    margin-bottom: .4rem;
+  }
+  .focus-card p {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: .96rem;
+    line-height: 1.7;
+    color: rgba(223,223,243,.85);
+  }
 
   .foot {
     border-top: 1px solid rgba(110,75,255,.1);
